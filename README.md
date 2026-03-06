@@ -14,16 +14,16 @@ The app fetches **real-time exchange rates** from an external currency API, ensu
 
 ## Features
 
-### 💱 Currency Conversion
+###  Currency Conversion
 * Enter any amount to convert
 * Select **From** and **To** currencies from a full list of world currencies
 * Click **Convert** to get the live result instantly
 
-### 🌐 Live Exchange Rates
+###  Live Exchange Rates
 * Fetches real-time rates from an external exchange rate API
 * Always up-to-date conversion results
 
-### 🎨 Clean UI
+###  Clean UI
 * Minimal, intuitive interface
 * Responsive layout for desktop and mobile use
 * Smooth user experience with straightforward controls
