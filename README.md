@@ -1,50 +1,64 @@
 # Currency Converter
 
-A sleek **client-side Currency Converter** built using **HTML, CSS, and vanilla JavaScript**. The application allows users to instantly convert between world currencies using live exchange rates — no backend, no frameworks, no setup required.
+A modern **client-side Currency Converter App** built using **HTML, CSS, and vanilla JavaScript**. The application allows users to instantly convert between world currencies using live exchange rates fetched from a public API — all without any backend or frameworks.
 
 ---
 
 ## Overview
 
-This is a **single-page frontend application** designed for fast and simple currency conversion. Users can select a source currency and a target currency, enter an amount, and instantly get the converted result.
+This is a **single-page frontend application** designed to make currency conversion simple and accurate. Users select a source currency, a target currency, and enter an amount to receive a real-time converted result powered by live exchange rate data.
 
-The app fetches **real-time exchange rates** from an external currency API, ensuring accurate and up-to-date conversions.
+The app fetches live rates on load and on every conversion, ensuring the results are always up to date.
 
 ---
 
 ## Features
 
-###  Currency Conversion
-* Enter any amount to convert
-* Select **From** and **To** currencies from a full list of world currencies
-* Click **Convert** to get the live result instantly
+### Currency Conversion
+- Convert between a wide range of world currencies
+- Real-time exchange rates fetched from the **ExchangeRate API**
+- Accurate results rounded to 2 decimal places
+- Input validation to prevent negative or invalid amounts
 
-###  Live Exchange Rates
-* Fetches real-time rates from an external exchange rate API
-* Always up-to-date conversion results
+---
 
-###  Clean UI
-* Minimal, intuitive interface
-* Responsive layout for desktop and mobile use
-* Smooth user experience with straightforward controls
+### Dynamic Currency Options
+- Currency dropdowns are populated dynamically from the API on page load
+- No hardcoded currency list — always reflects available currencies from the live data
+
+---
+
+### User Interface
+- Clean, dark-themed card layout
+- Labeled form fields for amount, source currency, and target currency
+- Conversion result displayed clearly below the form
+- Smooth hover and focus transitions on inputs and buttons
+
+---
+
+### Responsive Design
+- Optimized for desktop, tablet, and mobile devices
+- Centered card layout adapts to all screen sizes
+- Works on all modern browsers
 
 ---
 
 ## Technologies Used
 
-* HTML5
-* CSS3 (Responsive Design)
-* JavaScript (ES6+)
-* Exchange Rate API (external, fetched at runtime)
+- HTML5
+- CSS3 (Responsive Layout + Dark Theme UI + CSS Custom Properties)
+- JavaScript (ES6+, Async/Await, Fetch API)
+- [ExchangeRate API](https://api.exchangerate-api.com) — live currency exchange rate data
+- Google Fonts — Poppins typeface
 
 ---
 
 ## Project Structure
 
 ```text
-├── index.html    # Application layout and structure
-├── style.css     # Styling and responsive design
-├── script.js     # Conversion logic and API integration
+├── index.html    # Application layout and form structure
+├── style.css     # Dark theme styling, CSS variables, responsive design
+├── script.js     # API calls, currency population, conversion logic
 ```
 
 ---
@@ -53,37 +67,41 @@ The app fetches **real-time exchange rates** from an external currency API, ensu
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ZamanCodexpress/Currency-Convertor.git
+   git clone https://github.com/ZamanCodexpress/Currency-Converter.git
    ```
    **OR** download the project as a `.zip` file and extract it.
 
 2. Open `index.html` in any modern web browser.
 
-> No build tools, dependencies, or server setup required.
+> **Note:** An active internet connection is required to fetch live exchange rates from the ExchangeRate API.
+
+No build tools, dependencies, or server setup required.
 
 ---
 
 ## Implementation Details
 
-* Currency dropdown options populated dynamically via JavaScript
-* API call triggered on **Convert** button click
-* Exchange rate response parsed and displayed in the UI
-* Error handling for invalid inputs or failed API requests
+- Currency options are fetched on `window load` from `api.exchangerate-api.com/v4/latest/USD`
+- Both `From` and `To` dropdowns are populated dynamically by iterating over the API's `rates` object
+- On form submission, a second API call is made using the selected `From` currency as the base
+- Converted amount is calculated as `amount × rate` and displayed in the result div
+- CSS custom properties (variables) used throughout for consistent theming
 
 ---
 
 ## Limitations
 
-* Requires an active internet connection to fetch live exchange rates
-* No offline/cached rate fallback
-* No conversion history or tracking
-* No backend or user authentication
+- Exchange rates depend on the free tier of ExchangeRate API — update frequency may be limited
+- No offline support or cached rates
+- No swap button to quickly reverse the conversion direction
+- No conversion history or persistent storage
+- Currency names displayed as codes only (e.g., USD, EUR) — no full country names or flags
 
 ---
 
 ## License
 
-This project is **open-source** and intended for **educational and portfolio use**.
+This project is **open-source** and intended for educational and portfolio use.
 
 ---
 
